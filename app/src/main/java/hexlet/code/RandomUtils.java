@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Random;
 
 public final class RandomUtils {
+    @SuppressWarnings("java:S2245")
     private static final Random RANDOM = new Random();
 
     private RandomUtils() {
