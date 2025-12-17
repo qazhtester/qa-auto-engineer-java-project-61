@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.CalcGame;
 import hexlet.code.games.EvenGame;
+import hexlet.code.games.GcdGame;
 
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public final class App {
     private static final int GREET = 1;
     private static final int GAME_EVEN = 2;
     private static final int GAME_CALC = 3;
+    private static final int GAME_GCD = 4;
     private static final int MENU_EXIT = 0;
 
     public static void main(String[] args) {
@@ -37,6 +39,7 @@ public final class App {
                 1 - Greet
                 2 - Even
                 3 - Calc
+                4 - GCD
                 0 - Exit
                 Your choice:""");
         return Integer.parseInt(scanner.nextLine());
@@ -46,6 +49,7 @@ public final class App {
         switch (gameNumber) {
             case GAME_EVEN -> new EvenGame(scanner, username).run();
             case GAME_CALC -> new CalcGame(scanner, username).run();
+            case GAME_GCD -> new GcdGame(scanner, username).run();
             default -> throw new IllegalStateException("Unexpected value: " + gameNumber);
         }
     }
