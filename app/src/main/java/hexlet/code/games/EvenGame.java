@@ -1,34 +1,26 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
+import java.util.List;
 
-import static hexlet.code.ConsolePrinter.print;
 import static hexlet.code.RandomUtils.getRandomInt;
 
-public final class EvenGame extends Game {
+public final class EvenGame {
+    public static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 100;
     private static final String IS_EVEN_ANSWER = "yes";
     private static final String NOT_EVEN_ANSWER = "no";
-    private int number;
 
-    public EvenGame(Scanner scanner, String username) {
-        super(scanner, username);
+    private EvenGame() {
     }
 
-    @Override
-    protected void printRules() {
-        print("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    public static List<String> getTask() {
+        int number = getRandomInt(MIN_NUMBER, MAX_NUMBER);
+        String correctAnswer = getCorrectAnswer(number);
+        return List.of(String.valueOf(number), correctAnswer);
     }
 
-    @Override
-    protected String generateQuestion() {
-        number = getRandomInt(MIN_NUMBER, MAX_NUMBER);
-        return String.valueOf(number);
-    }
-
-    @Override
-    protected String getCorrectAnswer() {
+    private static String getCorrectAnswer(int number) {
         return number % 2 == 0 ? IS_EVEN_ANSWER : NOT_EVEN_ANSWER;
     }
 }

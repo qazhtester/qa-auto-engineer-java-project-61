@@ -1,38 +1,37 @@
 package hexlet.code.games;
 
 
-import java.util.Scanner;
+import java.util.List;
 
-import static hexlet.code.ConsolePrinter.print;
 import static hexlet.code.RandomUtils.getRandomInt;
 
-public final class ProgressionGame extends Game {
+public final class ProgressionGame {
+    public static final String RULES = "What number is missing in the progression?";
     private static final int MIN_LENGTH = 5;
     private static final int MAX_LENGTH = 10;
     private static final int MIN_START_NUMBER = 1;
     private static final int MAX_START_NUMBER = 20;
     private static final int MIN_STEP = 2;
     private static final int MAX_STEP = 9;
-    private int startNumber;
-    private int missingPosition;
-    private int step;
 
-    public ProgressionGame(Scanner scanner, String username) {
-        super(scanner, username);
+    private ProgressionGame() {
     }
 
-    @Override
-    protected void printRules() {
-        print("What number is missing in the progression?");
-    }
-
-    @Override
-    protected String generateQuestion() {
+    public static List<String> getTask() {
         int sequenceLength = getRandomInt(MIN_LENGTH, MAX_LENGTH);
-        startNumber = getRandomInt(MIN_START_NUMBER, MAX_START_NUMBER);
-        step = getRandomInt(MIN_STEP, MAX_STEP);
-        missingPosition = getRandomInt(sequenceLength - 1);
+        int startNumber = getRandomInt(MIN_START_NUMBER, MAX_START_NUMBER);
+        int step = getRandomInt(MIN_STEP, MAX_STEP);
+        int missingPosition = getRandomInt(sequenceLength - 1);
 
+        String question = buildQuestion(sequenceLength, missingPosition, startNumber, step);
+        String correctAnswer = String.valueOf(startNumber + missingPosition * step);
+        return List.of(question, correctAnswer);
+    }
+
+    private static String buildQuestion(int sequenceLength,
+                                        int missingPosition,
+                                        int startNumber,
+                                        int step) {
         StringBuilder question = new StringBuilder();
         for (int i = 0; i < sequenceLength; i++) {
             if (i == missingPosition) {
@@ -47,10 +46,5 @@ public final class ProgressionGame extends Game {
         }
 
         return question.toString();
-    }
-
-    @Override
-    protected String getCorrectAnswer() {
-        return String.valueOf(startNumber + missingPosition * step);
     }
 }

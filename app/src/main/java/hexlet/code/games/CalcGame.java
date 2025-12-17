@@ -1,37 +1,28 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
+import java.util.List;
 
-import static hexlet.code.ConsolePrinter.print;
 import static hexlet.code.RandomUtils.getRandomInt;
 
-public final class CalcGame extends Game {
+public final class CalcGame {
+    public static final String RULES = "What is the result of the expression?";
     private static final int MIN_NUMBER = 2;
     private static final int MAX_NUMBER = 50;
     private static final char[] OPERATORS = {'+', '-', '*'};
-    private int firstOperand;
-    private int secondOperand;
-    private char currentOperation;
 
-    public CalcGame(Scanner scanner, String username) {
-        super(scanner, username);
+    private CalcGame() {
     }
 
-    @Override
-    protected void printRules() {
-        print("What is the result of the expression?");
+    public static List<String> getTask() {
+        int firstOperand = getRandomInt(MIN_NUMBER, MAX_NUMBER);
+        int secondOperand = getRandomInt(MIN_NUMBER, MAX_NUMBER);
+        char currentOperation = OPERATORS[getRandomInt(OPERATORS.length - 1)];
+        String question = firstOperand + " " + currentOperation + " " + secondOperand;
+        String answer = getCorrectAnswer(firstOperand, secondOperand, currentOperation);
+        return List.of(question, answer);
     }
 
-    @Override
-    protected String generateQuestion() {
-        firstOperand = getRandomInt(MIN_NUMBER, MAX_NUMBER);
-        secondOperand = getRandomInt(MIN_NUMBER, MAX_NUMBER);
-        currentOperation = OPERATORS[getRandomInt(OPERATORS.length - 1)];
-        return firstOperand + " " + currentOperation + " " + secondOperand;
-    }
-
-    @Override
-    protected String getCorrectAnswer() {
+    private static String getCorrectAnswer(int firstOperand, int secondOperand, char currentOperation) {
         return switch (currentOperation) {
             case '+' -> String.valueOf(firstOperand + secondOperand);
             case '-' -> String.valueOf(firstOperand - secondOperand);
