@@ -5,5 +5,5 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=qazhtester_qa-auto-engineer-java-project-61&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=qazhtester_qa-auto-engineer-java-project-61)
 
 ### Игра: "Проверка на чётность"
-[![asciicast](https://asciinema.org/a/752IEWKZU75bhhJaQqk5628cK.svg)](https://asciinema.org/a/752IEWKZU75bhhJaQqk5628cK)
+[![asciicast](https://asciinema.org/a/pS36LHEL2S7QVSgwMD8f7TKEY.svg)](https://asciinema.org/a/pS36LHEL2S7QVSgwMD8f7TKEY)
 
