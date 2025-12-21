@@ -36,7 +36,7 @@ public final class Engine {
             printQuestion(question);
             String userAnswer = getUserAnswer(scanner);
 
-            if (!printResult(correctAnswer, userAnswer, username)) {
+            if (!checkAnswer(correctAnswer, userAnswer, username)) {
                 return;
             }
         }
@@ -65,7 +65,7 @@ public final class Engine {
         };
     }
 
-    private static boolean printResult(String correctAnswer, String userAnswer, String username) {
+    private static boolean checkAnswer(String correctAnswer, String userAnswer, String username) {
         if (correctAnswer.equals(userAnswer)) {
             print("Correct!");
             return true;

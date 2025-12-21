@@ -4,7 +4,7 @@ import java.util.Random;
 
 public final class RandomUtils {
     @SuppressWarnings("java:S2245")
-    private static final Random RANDOM = new Random();
+    private static final Random RANDOM = new Random(); //NOSONAR
 
     private RandomUtils() {
     }
