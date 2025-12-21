@@ -4,6 +4,17 @@
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=qazhtester_qa-auto-engineer-java-project-61&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=qazhtester_qa-auto-engineer-java-project-61)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=qazhtester_qa-auto-engineer-java-project-61&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=qazhtester_qa-auto-engineer-java-project-61)
 
-### Игра: "Проверка на чётность"
-[![asciicast](https://asciinema.org/a/752IEWKZU75bhhJaQqk5628cK.svg)](https://asciinema.org/a/752IEWKZU75bhhJaQqk5628cK)
+### Игра "Проверка на чётность"
+[![asciicast](https://asciinema.org/a/pS36LHEL2S7QVSgwMD8f7TKEY.svg)](https://asciinema.org/a/pS36LHEL2S7QVSgwMD8f7TKEY)
 
+### Игра "Калькулятор"
+[![asciicast](https://asciinema.org/a/3vlKoX7SwWPakwxSVCtBqQZfN.svg)](https://asciinema.org/a/3vlKoX7SwWPakwxSVCtBqQZfN)
+
+### Игра "НОД"
+[![asciicast](https://asciinema.org/a/2UAs6EhlbZJcxgYem7sjk2flo.svg)](https://asciinema.org/a/2UAs6EhlbZJcxgYem7sjk2flo)
+
+### Игра "Арифметическая прогрессия"
+[![asciicast](https://asciinema.org/a/d93k4iwhRyy5DXDvz3K2HvgAj.svg)](https://asciinema.org/a/d93k4iwhRyy5DXDvz3K2HvgAj)
+
+### Игра "Простое ли число?"
+[![asciicast](https://asciinema.org/a/YiXZWv08SkcsncPRSVfDq7UIr.svg)](https://asciinema.org/a/YiXZWv08SkcsncPRSVfDq7UIr)

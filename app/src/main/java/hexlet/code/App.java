@@ -2,34 +2,41 @@ package hexlet.code;
 
 import java.util.Scanner;
 
+import static hexlet.code.ConsolePrinter.print;
+
 public final class App {
+    private static final int GREET = 1;
+    private static final int MENU_EXIT = 0;
 
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            int gameNumber = selectGame(scanner);
-            if (gameNumber == 0) {
+            int userChoice = selectGame(scanner);
+
+            if (userChoice == MENU_EXIT) {
+                return;
+            }
+
+            if (userChoice == GREET) {
+                Cli.greetUser(scanner);
                 return;
             }
 
             String username = Cli.greetUser(scanner);
-            startGame(gameNumber, scanner, username);
+            Engine.run(scanner, username, userChoice);
         }
     }
 
     private static int selectGame(Scanner scanner) {
-        System.out.println("""
+        print("""
                 Please enter the game number and press Enter
                 1 - Greet
                 2 - Even
-                0 - Exit""");
-        int number = Integer.parseInt(scanner.nextLine());
-        System.out.println("Your choice: " + number);
-        return number;
-    }
-
-    private static void startGame(int gameNumber, Scanner scanner, String username) {
-        if (gameNumber == 2) {
-            EvenGame.run(scanner, username);
-        }
+                3 - Calc
+                4 - GCD
+                5 - Progression
+                6 - Prime
+                0 - Exit
+                Your choice:""");
+        return Integer.parseInt(scanner.nextLine());
     }
 }

@@ -2,17 +2,20 @@ package hexlet.code;
 
 import java.util.Scanner;
 
+import static hexlet.code.ConsolePrinter.print;
+import static hexlet.code.ConsolePrinter.printf;
+
 final class Cli {
 
     private Cli() {
     }
 
     static String greetUser(Scanner scanner) {
-        System.out.println("""
+        print("""
                 Welcome to the Brain Games!
                 May I have your name?""");
         String name = scanner.nextLine();
-        System.out.printf("Hello, %s!%n", name);
+        printf("Hello, %s!%n", name);
         return name;
     }
 }
