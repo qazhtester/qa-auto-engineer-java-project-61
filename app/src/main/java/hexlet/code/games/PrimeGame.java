@@ -1,11 +1,14 @@
 package hexlet.code.games;
 
-import java.util.List;
+import hexlet.code.Engine;
+
+import java.util.Scanner;
 
 import static hexlet.code.RandomUtils.getRandomInt;
 
 public final class PrimeGame {
-    public static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int TOTAL_ROUNDS = 3;
     private static final String IS_PRIME_ANSWER = "yes";
     private static final String NOT_PRIME_ANSWER = "no";
     private static final int MAX_NUMBER = 100;
@@ -15,10 +18,24 @@ public final class PrimeGame {
     private PrimeGame() {
     }
 
-    public static List<String> getTask() {
-        int number = getRandomInt(MAX_NUMBER);
-        String correctAnswer = isPrime(number) ? IS_PRIME_ANSWER : NOT_PRIME_ANSWER;
-        return List.of(String.valueOf(number), correctAnswer);
+    public static void run(Scanner scanner, String username) {
+        String[][] gameData = createGameData();
+        Engine.runGame(scanner, RULES, username, gameData);
+    }
+
+    private static String[][] createGameData() {
+        String[][] gameData = new String[TOTAL_ROUNDS][2];
+
+        for (int i = 0; i < TOTAL_ROUNDS; i++) {
+            int number = getRandomInt(MAX_NUMBER);
+            String question = String.valueOf(number);
+            String answer = isPrime(number) ? IS_PRIME_ANSWER : NOT_PRIME_ANSWER;
+
+            gameData[i][0] = question;
+            gameData[i][1] = answer;
+        }
+
+        return gameData;
     }
 
     private static boolean isPrime(int number) {

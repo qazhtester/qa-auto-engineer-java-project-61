@@ -1,12 +1,15 @@
 package hexlet.code.games;
 
 
-import java.util.List;
+import hexlet.code.Engine;
+
+import java.util.Scanner;
 
 import static hexlet.code.RandomUtils.getRandomInt;
 
 public final class ProgressionGame {
-    public static final String RULES = "What number is missing in the progression?";
+    private static final String RULES = "What number is missing in the progression?";
+    private static final int TOTAL_ROUNDS = 3;
     private static final int MIN_LENGTH = 5;
     private static final int MAX_LENGTH = 10;
     private static final int MIN_START_NUMBER = 1;
@@ -17,15 +20,28 @@ public final class ProgressionGame {
     private ProgressionGame() {
     }
 
-    public static List<String> getTask() {
-        int sequenceLength = getRandomInt(MIN_LENGTH, MAX_LENGTH);
-        int startNumber = getRandomInt(MIN_START_NUMBER, MAX_START_NUMBER);
-        int step = getRandomInt(MIN_STEP, MAX_STEP);
-        int missingPosition = getRandomInt(sequenceLength - 1);
+    public static void run(Scanner scanner, String username) {
+        String[][] gameData = createGameData();
+        Engine.runGame(scanner, RULES, username, gameData);
+    }
 
-        String question = buildQuestion(sequenceLength, missingPosition, startNumber, step);
-        String correctAnswer = String.valueOf(startNumber + missingPosition * step);
-        return List.of(question, correctAnswer);
+    private static String[][] createGameData() {
+        String[][] gameData = new String[TOTAL_ROUNDS][2];
+
+        for (int i = 0; i < TOTAL_ROUNDS; i++) {
+            int sequenceLength = getRandomInt(MIN_LENGTH, MAX_LENGTH);
+            int startNumber = getRandomInt(MIN_START_NUMBER, MAX_START_NUMBER);
+            int step = getRandomInt(MIN_STEP, MAX_STEP);
+            int missingPosition = getRandomInt(sequenceLength - 1);
+
+            String question = buildQuestion(sequenceLength, missingPosition, startNumber, step);
+            String answer = String.valueOf(startNumber + missingPosition * step);
+
+            gameData[i][0] = question;
+            gameData[i][1] = answer;
+        }
+
+        return gameData;
     }
 
     private static String buildQuestion(int sequenceLength,
